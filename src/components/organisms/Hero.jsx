@@ -105,7 +105,8 @@ const Hero = ({
                 variant="secondary"
                 size="lg"
                 onClick={
-                  onContactClick || (() => (window.location.href = "/contacto"))
+                  onContactClick ||
+                  (() => (window.location.href = "tel:+34123456789"))
                 }
                 className="shadow-2xl"
               >
@@ -114,13 +115,13 @@ const Hero = ({
               </Button>
 
               <Button
-                variant="outline"
+                variant="ghost"
                 size="lg"
                 onClick={
                   onServicesClick ||
                   (() => (window.location.href = "/servicios"))
                 }
-                className="border-white text-white hover:bg-white hover:text-gray-900 shadow-2xl"
+                className="border-2 border-white text-white hover:bg-white hover:text-black shadow-2xl"
               >
                 <Icon name="wrench" size="md" className="mr-2" />
                 Ver Servicios

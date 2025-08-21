@@ -180,6 +180,7 @@ const Home = () => {
                 variant="white"
                 size="lg"
                 className="inline-flex items-center"
+                onClick={() => (window.location.href = "tel:+34123456789")}
               >
                 <Icon name="phone" size="sm" className="mr-2" />
                 Llamar ahora
@@ -188,6 +189,7 @@ const Home = () => {
                 variant="outline"
                 size="lg"
                 className="inline-flex items-center border-white text-white hover:bg-white hover:text-primary-900"
+                onClick={() => (window.location.href = "/contacto")}
               >
                 <Icon name="calculator" size="sm" className="mr-2" />
                 Solicitar presupuesto

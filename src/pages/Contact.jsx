@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Button, Icon } from "../components/atoms";
-import { ContactForm } from "../components/molecules";
 
 const Contact = () => {
   const contactInfo = [
@@ -116,7 +115,8 @@ const Contact = () => {
               <Button
                 variant="white"
                 size="lg"
-                className="inline-flex items-center"
+                className="inline-flex items-center cursor-pointer"
+                onClick={() => (window.location.href = "tel:+34123456789")}
               >
                 <Icon name="phone" size="sm" className="mr-2" />
                 Llamar ahora
@@ -124,7 +124,8 @@ const Contact = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="inline-flex items-center border-white text-white hover:bg-white hover:text-primary-900"
+                className="inline-flex items-center border-white text-white hover:bg-white hover:text-primary-900 cursor-pointer"
+                onClick={() => (window.location.href = "tel:+34123456789")}
               >
                 <Icon name="calendar" size="sm" className="mr-2" />
                 Agendar cita
@@ -165,93 +166,159 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Main Contact Section */}
+      {/* Contact Methods Section */}
       <section className="section-padding bg-gray-50">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <div className="bg-white rounded-xl shadow-sm p-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Solicita tu presupuesto
-                </h2>
-                <p className="text-gray-600 mb-8">
-                  Completa el formulario y te contactaremos en menos de 24 horas
-                  con un presupuesto personalizado.
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-xl shadow-sm p-8 mb-12"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+              Formas de Contacto
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                  <Icon name="phone" size="lg" color="text-primary-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  Llámanos Directamente
+                </h4>
+                <p className="text-gray-600 mb-4">
+                  Habla con nuestro equipo de inmediato
                 </p>
-                <ContactForm />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => (window.location.href = "tel:+34123456789")}
+                  className="cursor-pointer"
+                >
+                  <Icon name="phone" size="sm" className="mr-2" />
+                  +34 123 456 789
+                </Button>
               </div>
-            </motion.div>
 
-            {/* Map and Offices */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              {/* Map Placeholder */}
-              <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-                <div className="h-64 bg-gray-200 flex items-center justify-center">
-                  <div className="text-center">
-                    <Icon
-                      name="map-pin"
-                      size="xl"
-                      color="text-gray-400"
-                      className="mx-auto mb-2"
-                    />
-                    <p className="text-gray-500">Mapa interactivo</p>
-                    <p className="text-sm text-gray-400">
-                      Encuentra nuestras oficinas
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                  <Icon name="mail" size="lg" color="text-primary-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  Envíanos un Email
+                </h4>
+                <p className="text-gray-600 mb-4">
+                  Respuesta garantizada en 24 horas
+                </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() =>
+                    (window.location.href = "mailto:info@reformasexpertas.com")
+                  }
+                  className="cursor-pointer text-xs sm:text-sm break-all"
+                >
+                  <Icon name="mail" size="sm" className="mr-2 flex-shrink-0" />
+                  <span className="break-all">info@reformasexpertas.com</span>
+                </Button>
+              </div>
+
+              <div className="flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                  <Icon name="calendar" size="lg" color="text-primary-600" />
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  Agenda una Cita
+                </h4>
+                <p className="text-gray-600 mb-4">
+                  Visita técnica gratuita a domicilio
+                </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => (window.location.href = "tel:+34123456789")}
+                  className="cursor-pointer"
+                >
+                  <Icon name="calendar" size="sm" className="mr-2" />
+                  Agendar Visita
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Map Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-xl shadow-sm overflow-hidden mb-12"
+          >
+            <div className="h-96 bg-gray-200 flex items-center justify-center">
+              <div className="text-center">
+                <Icon
+                  name="map-pin"
+                  size="xl"
+                  color="text-gray-400"
+                  className="mx-auto mb-2"
+                />
+                <p className="text-gray-500">Mapa interactivo</p>
+                <p className="text-sm text-gray-400">
+                  Encuentra nuestra ubicación
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Offices Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-xl shadow-sm p-8"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+              Nuestras Oficinas
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {offices.map((office, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon name="map-pin" size="lg" color="text-primary-600" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-3">
+                    {office.city}
+                  </h4>
+                  <div className="space-y-2 text-sm text-gray-600">
+                    <p className="font-medium">{office.address}</p>
+                    <p>{office.postal}</p>
+                    <div className="flex flex-col space-y-1 mt-3">
+                      <a
+                        href={`tel:${office.phone.replace(/\s/g, "")}`}
+                        className="text-primary-600 hover:text-primary-700 font-medium cursor-pointer flex items-center justify-center"
+                      >
+                        <Icon name="phone" size="xs" className="mr-1" />
+                        {office.phone}
+                      </a>
+                      <a
+                        href={`mailto:${office.email}`}
+                        className="text-primary-600 hover:text-primary-700 font-medium cursor-pointer flex items-center justify-center"
+                      >
+                        <Icon name="mail" size="xs" className="mr-1" />
+                        {office.email}
+                      </a>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-2">
+                      <Icon name="user" size="xs" className="mr-1 inline" />
+                      {office.manager}
                     </p>
                   </div>
                 </div>
-              </div>
-
-              {/* Offices List */}
-              <div className="bg-white rounded-xl shadow-sm p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                  Nuestras Oficinas
-                </h3>
-                <div className="space-y-6">
-                  {offices.map((office, index) => (
-                    <div
-                      key={index}
-                      className="border-b border-gray-100 last:border-b-0 pb-4 last:pb-0"
-                    >
-                      <h4 className="font-semibold text-gray-900 mb-2">
-                        {office.city}
-                      </h4>
-                      <div className="space-y-1 text-sm text-gray-600">
-                        <p className="flex items-center">
-                          <Icon name="map-pin" size="sm" className="mr-2" />
-                          {office.address}, {office.postal}
-                        </p>
-                        <p className="flex items-center">
-                          <Icon name="phone" size="sm" className="mr-2" />
-                          {office.phone}
-                        </p>
-                        <p className="flex items-center">
-                          <Icon name="mail" size="sm" className="mr-2" />
-                          {office.email}
-                        </p>
-                        <p className="flex items-center">
-                          <Icon name="user" size="sm" className="mr-2" />
-                          Responsable: {office.manager}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -337,7 +404,8 @@ const Contact = () => {
             <Button
               variant="primary"
               size="lg"
-              className="inline-flex items-center bg-red-600 hover:bg-red-700"
+              className="inline-flex items-center bg-red-600 hover:bg-red-700 cursor-pointer"
+              onClick={() => (window.location.href = "tel:+34900123456")}
             >
               <Icon name="phone" size="sm" className="mr-2" />
               Llamar Emergencias: +34 900 123 456
@@ -366,7 +434,8 @@ const Contact = () => {
               <Button
                 variant="white"
                 size="lg"
-                className="inline-flex items-center"
+                className="inline-flex items-center cursor-pointer"
+                onClick={() => (window.location.href = "tel:+34900123456")}
               >
                 <Icon name="calculator" size="sm" className="mr-2" />
                 Solicitar presupuesto
@@ -374,7 +443,8 @@ const Contact = () => {
               <Button
                 variant="outline"
                 size="lg"
-                className="inline-flex items-center border-white text-white hover:bg-white hover:text-primary-900"
+                className="inline-flex items-center border-white text-white hover:bg-white hover:text-primary-900 cursor-pointer"
+                onClick={() => (window.location.href = "tel:+34900123456")}
               >
                 <Icon name="calendar" size="sm" className="mr-2" />
                 Agendar visita
