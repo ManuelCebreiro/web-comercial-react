@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ServiceCard } from '../molecules';
 
 const ServicesGrid = ({ 
@@ -7,6 +8,7 @@ const ServicesGrid = ({
   onContactClick,
   className = ""
 }) => {
+  const navigate = useNavigate();
   const services = [
     {
       id: 1,
@@ -113,7 +115,7 @@ const ServicesGrid = ({
                 icon={service.icon}
                 features={service.features}
                 price={service.price}
-                onContactClick={onContactClick || (() => window.location.href = '/contacto')}
+                onContactClick={onContactClick || (() => navigate('/contacto'))}
                 className="h-full"
               />
             </div>
@@ -132,7 +134,7 @@ const ServicesGrid = ({
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={onContactClick || (() => window.location.href = '/contacto')}
+                onClick={onContactClick || (() => navigate('/contacto'))}
                 className="btn-primary mr-4"
               >
                 Solicitar Presupuesto Personalizado

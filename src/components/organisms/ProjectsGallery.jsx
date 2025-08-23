@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ProjectCard } from '../molecules';
 import { Button, Icon } from '../atoms';
 
@@ -8,6 +9,7 @@ const ProjectsGallery = ({
   showAll = false,
   className = ""
 }) => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('todos');
   const [visibleProjects, setVisibleProjects] = useState(showAll ? 12 : 6);
 
@@ -189,7 +191,7 @@ const ProjectsGallery = ({
               <Button
                 variant="white"
                 size="lg"
-                onClick={() => window.location.href = '/contacto'}
+                onClick={() => navigate('/contacto')}
               >
                 <Icon name="mail" size="md" className="mr-2" />
                 Solicitar Consulta Gratuita

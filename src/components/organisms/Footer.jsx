@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Logo, Icon, Button } from '../atoms';
 
 const Footer = () => {
+  const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
@@ -138,7 +139,7 @@ const Footer = () => {
               <Button 
                 variant="secondary" 
                 size="sm" 
-                onClick={() => window.location.href = '/contacto'}
+                onClick={() => navigate('/contacto')}
                 className="w-full"
               >
                 Solicitar Presupuesto

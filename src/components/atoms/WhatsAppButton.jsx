@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Icon from './Icon';
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import Icon from "./Icon";
 
-const WhatsAppButton = ({ 
+const WhatsAppButton = ({
   phoneNumber = "+34123456789",
   message = "Hola, me gustaría solicitar información sobre sus servicios de reforma.",
-  className = ""
+  className = "",
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -19,14 +19,17 @@ const WhatsAppButton = ({
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   const handleClick = () => {
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
+    const whatsappUrl = `https://wa.me/${phoneNumber.replace(
+      /[^0-9]/g,
+      ""
+    )}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
@@ -67,15 +70,15 @@ const WhatsAppButton = ({
             {/* Ripple Effect */}
             <div className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-20"></div>
             <div className="absolute inset-0 rounded-full bg-green-400 animate-pulse opacity-10"></div>
-            
+
             {/* WhatsApp Icon */}
-            <Icon 
-              name="whatsapp" 
-              size="xl" 
-              color="white" 
+            <Icon
+              name="whatsapp"
+              size="xl"
+              color="white"
               className="relative z-10"
             />
-            
+
             {/* Notification Badge */}
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}

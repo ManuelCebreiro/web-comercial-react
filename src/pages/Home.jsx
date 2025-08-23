@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Hero, ServicesGrid, ProjectsGallery } from '../components/organisms';
 import { TestimonialCard } from '../components/molecules';
 import { Button, Icon } from '../components/atoms';
 
 const Home = () => {
+  const navigate = useNavigate();
   const testimonials = [
     {
       id: 1,
@@ -189,7 +191,7 @@ const Home = () => {
                 variant="outline"
                 size="lg"
                 className="inline-flex items-center border-white text-white hover:bg-white hover:text-primary-900"
-                onClick={() => (window.location.href = "/contacto")}
+                onClick={() => navigate("/contacto")}
               >
                 <Icon name="calculator" size="sm" className="mr-2" />
                 Solicitar presupuesto

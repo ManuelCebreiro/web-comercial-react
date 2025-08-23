@@ -1,12 +1,13 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button, Icon, Logo } from "../atoms";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Páginas que tienen fondo blanco desde el inicio
   const whiteBackgroundPages = ["/servicios", "/proyectos", "/contacto"];
@@ -95,7 +96,7 @@ const Navbar = () => {
                 variant={useDarkStyles ? "primary" : "white"}
                 size="sm"
                 className="cursor-pointer"
-                onClick={() => (window.location.href = "/contacto")}
+                onClick={() => navigate("/contacto")}
               >
                 Presupuesto Gratis
               </Button>
@@ -151,7 +152,7 @@ const Navbar = () => {
                     variant="primary"
                     size="md"
                     className="w-full cursor-pointer"
-                    onClick={() => (window.location.href = "/contacto")}
+                    onClick={() => navigate("/contacto")}
                   >
                     Presupuesto Gratis
                   </Button>
